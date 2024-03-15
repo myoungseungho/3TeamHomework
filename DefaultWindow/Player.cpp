@@ -144,7 +144,7 @@ void CPlayer::Render(HDC hDC)
 	{
 		LineTo(hDC, (int)m_vPoint[i].x, (int)m_vPoint[i].y);
 
-		if (i == 0 || i == 3)
+		if (i < 2)
 			continue;
 
 		Ellipse(hDC,
