@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Obj.h"
-class CPlayer :	public CObj
+class CPlayer : public CObj
 {
 public:
 	CPlayer();
@@ -23,6 +23,11 @@ private:
 	D3DXVECTOR3		m_vGunPoint;
 	D3DXVECTOR3		m_vOriginGunPoint;
 
+	list<D3DXVECTOR3>		m_ListSkidMark;
+
+	int m_lastSkidFrame = 0;
+	int m_skidInterval = 65 / 30;
+	bool m_bShift;
 };
 
 //A(x, y, z) 
