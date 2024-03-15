@@ -153,7 +153,9 @@
   <ItemGroup>
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="Player.h" />
@@ -163,7 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DefaultWindow.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="Player.cpp" />

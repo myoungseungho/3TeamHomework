@@ -14,20 +14,20 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize()
 {
-	m_tInfo.vPos = { 400.f, 300.f, 0.f };
+	m_tInfo.vPos = { 100.f, 100.f, 0.f };
 
-	m_vPoint[0] = { m_tInfo.vPos.x - 50.f, m_tInfo.vPos.y - 50.f, 0.f };
-	m_vPoint[1] = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y - 50.f, 0.f };
-	m_vPoint[2] = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y + 50.f, 0.f };
-	m_vPoint[3] = { m_tInfo.vPos.x - 50.f, m_tInfo.vPos.y + 50.f, 0.f };
+	m_vPoint[0] = { m_tInfo.vPos.x - 10.f, m_tInfo.vPos.y - 10.f, 0.f };
+	m_vPoint[1] = { m_tInfo.vPos.x + 10.f, m_tInfo.vPos.y - 10.f, 0.f };
+	m_vPoint[2] = { m_tInfo.vPos.x + 10.f, m_tInfo.vPos.y + 10.f, 0.f };
+	m_vPoint[3] = { m_tInfo.vPos.x - 10.f, m_tInfo.vPos.y + 10.f, 0.f };
 
 	for (int i = 0; i < 4; ++i)
 		m_vOriginPoint[i] = m_vPoint[i];
 
-	m_vGunPoint = { m_tInfo.vPos.x, m_tInfo.vPos.y - 100.f, 0.f };
+	m_vGunPoint = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y, 0.f };
 	m_vOriginGunPoint = m_vGunPoint;
-	
-	m_tInfo.vLook = { 0.f, -1.f, 0.f };
+
+	m_tInfo.vLook = { 1.f, 0.f, 0.f };
 	m_fSpeed = 2.f;
 }
 
@@ -122,7 +122,7 @@ void CPlayer::Update()
 	{
 		m_vPoint[i] = m_vOriginPoint[i];
 
-		m_vPoint[i] -= { 400.f, 300.f, 0.f};
+		m_vPoint[i] -= { 100.f, 100.f, 0.f};
 
 		D3DXVec3TransformCoord(&m_vPoint[i], &m_vPoint[i], &m_tInfo.matWorld);
 	}
@@ -131,10 +131,9 @@ void CPlayer::Update()
 
 	m_vGunPoint = m_vOriginGunPoint;
 
-	m_vGunPoint -= { 400.f, 300.f, 0.f};
+	m_vGunPoint -= { 100.f, 100.f, 0.f};
 
 	D3DXVec3TransformCoord(&m_vGunPoint, &m_vGunPoint, &m_tInfo.matWorld);
-	
 }
 
 void CPlayer::Render(HDC hDC)
@@ -145,7 +144,7 @@ void CPlayer::Render(HDC hDC)
 	{
 		LineTo(hDC, (int)m_vPoint[i].x, (int)m_vPoint[i].y);
 
-		if(i > 0)
+		if (i == 0 || i == 3)
 			continue;
 
 		Ellipse(hDC,
@@ -161,7 +160,6 @@ void CPlayer::Render(HDC hDC)
 
 	MoveToEx(hDC, (int)m_tInfo.vPos.x, (int)m_tInfo.vPos.y, nullptr);
 	LineTo(hDC, (int)m_vGunPoint.x, (int)m_vGunPoint.y);
-
 }
 
 void CPlayer::Release()
@@ -171,10 +169,24 @@ void CPlayer::Release()
 void CPlayer::Key_Input()
 {
 	if (GetAsyncKeyState('D') & 0x8000)
-		m_fAngle += D3DXToRadian(3.f);	
+	{
+		m_fAngle += D3DXToRadian(1.f);
+
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+		{
+			m_fAngle += D3DXToRadian(3.f);
+		}
+	}
 
 	if (GetAsyncKeyState('A') & 0x8000)
-		m_fAngle += D3DXToRadian(-3.f);
+	{
+		m_fAngle += D3DXToRadian(-1.f);
+
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+		{
+			m_fAngle += D3DXToRadian(-3.f);
+		}
+	}
 
 	if (GetAsyncKeyState('W') & 0x8000)
 	{
@@ -194,5 +206,6 @@ void CPlayer::Key_Input()
 		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld);
 		m_tInfo.vPos -= m_tInfo.vDir * m_fSpeed;
 	}
+
 
 }
