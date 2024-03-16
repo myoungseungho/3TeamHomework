@@ -1,9 +1,11 @@
 ﻿#pragma once
 #include "Obj.h"
+#include "MainGame.h"
+class CMainGame;
 class CPlayer : public CObj
 {
 public:
-	CPlayer();
+	CPlayer(CMainGame* maingame);
 	virtual ~CPlayer();
 
 public:
@@ -14,7 +16,7 @@ public:
 
 private:
 	void		Key_Input();
-
+	pair< bool, int>		Collision_Item();
 
 private:
 	D3DXVECTOR3		m_vPoint[4];
@@ -28,6 +30,8 @@ private:
 	int m_lastSkidFrame = 0;
 	int m_skidInterval = 65 / 30;
 	bool m_bShift;
+	bool m_IsItemCollision = false;
+	CMainGame* m_pMainGame;
 };
 
 //A(x, y, z) 

@@ -7,10 +7,10 @@ class CObj
 public:
 	CObj();
 	virtual ~CObj();
-	
+
 public:
 	INFO		Get_Info() { return m_tInfo; }
-
+	void		Set_Pos(float _x, float _y) { m_InitX = _x, m_InitY = _y; }
 
 public:
 	virtual void Initialize()		PURE;
@@ -18,6 +18,24 @@ public:
 	virtual void Render(HDC hDC)	PURE;
 	virtual void Release()			PURE;
 
+public:
+	void Lerp();
+	void SetLerpFactor(bool _bool) {
+		m_bLerpFactor = _bool;
+	}
+	void SetLerp(bool _bool)
+	{
+		if (_bool)
+		{
+			m_bPlusLerp = true;
+			m_bMinusLerp = false;
+		}
+		else
+		{
+			m_bPlusLerp = false;
+			m_bMinusLerp = true;
+		}
+	}
 
 protected:
 	INFO		m_tInfo;
@@ -25,14 +43,13 @@ protected:
 	float		m_fSpeed;
 	float		m_fAngle;
 
+	float m_InitX = 0.f;
+	float m_InitY = 0.f;
+
+	bool m_bLerpFactor = false;
+	bool m_bPlusLerp = false;
+	bool m_bMinusLerp = false;
+	float m_Scale = 0.f;
+	float m_MaxScale = 0.f;
+	float m_MinScale = 0.f;
 };
-
-// 출력 연산의 최소 단위 = vertex
-// 출력의 최소 단위 = polygon
-
-// vertex - Polygon - subset - mesh
-
-// 버텍스 프로세싱 = 정점의 변환 + 조명 연산(명암)
-
-// 렌더링 파이프 라인(dx9)
-// 로컬 스페이스 - 월드 스페이스 - 뷰 스페이스 - 후면 추려내기 - 조명 - 클리핑 - 투영 - 뷰포트 변환 - 레스터라이즈

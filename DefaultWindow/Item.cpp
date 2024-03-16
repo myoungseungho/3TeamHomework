@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Item.h"
 
-CItem::CItem() :m_fAngleSpeed(0.f), m_Scale(0.f), m_bLerpFactor(false), m_MaxScale(0.f), m_MinScale(0.f)
+CItem::CItem() :m_fAngleSpeed(0.f)
 {
 	ZeroMemory(m_vPoint, sizeof(m_vPoint));
 	ZeroMemory(m_vOriginPoint, sizeof(m_vOriginPoint));
@@ -19,7 +19,7 @@ void CItem::Initialize()
 	m_MaxScale = 5.f;
 	m_MinScale = 0.0f;
 
-	m_tInfo.vPos = { 400.f, 300.f, 0.f };
+	m_tInfo.vPos = { m_InitX, m_InitY, 0.f };
 
 	m_vPoint[0] = { m_tInfo.vPos.x, m_tInfo.vPos.y - 10.f, 0.f };
 	m_vPoint[1] = { m_tInfo.vPos.x + 5.f, m_tInfo.vPos.y + 10.f, 0.f };
@@ -46,14 +46,14 @@ void CItem::Update()
 	{
 		m_vPoint[i] = m_vOriginPoint[i];
 
-		m_vPoint[i] -= { 400.f, 300.f, 0.f};
+		m_vPoint[i] -= { m_InitX, m_InitY, 0.f};
 
 		D3DXVec3TransformCoord(&m_vPoint[i], &m_vPoint[i], &m_tInfo.matWorld);
 	}
 
-	Lerp();
-
 	m_fAngle += m_fAngleSpeed;
+
+	Lerp();
 }
 
 void CItem::Render(HDC hDC)
@@ -79,26 +79,4 @@ void CItem::Render(HDC hDC)
 
 void CItem::Release()
 {
-}
-
-void CItem::Lerp()
-{
-	float fInterpolation = 0.05f;
-
-	if (m_bLerpFactor == false)
-	{
-		if (m_Scale <= m_MinScale)
-			m_bLerpFactor = true;
-
-		float newInterPolation = (m_MinScale - m_MaxScale) * fInterpolation;
-		m_Scale += newInterPolation;
-	}
-	else
-	{
-		if (m_Scale >= m_MaxScale)
-			m_bLerpFactor = false;
-
-		float newInterPolation = (m_MaxScale - m_MinScale) * fInterpolation;
-		m_Scale += newInterPolation;
-	}
 }
