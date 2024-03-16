@@ -2,7 +2,7 @@
 #include "Obj.h"
 
 
-CObj::CObj() : m_fSpeed(0.f), m_fAngle(0.f)
+CObj::CObj() : m_fSpeed(0.f), m_fAngle(0.f), m_MaxScale(3.f), m_MinScale(1.f)
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	D3DXMatrixIdentity(&m_tInfo.matWorld);
@@ -12,28 +12,34 @@ CObj::~CObj()
 {
 }
 
-void CObj::Lerp()
+bool CObj::Lerp(int _lerp)
 {
-	if (!m_bLerpFactor)
-		return;
+	float fInterpolation = 0.01f;
+	float newInterPolation = 0.f;
 
-	float fInterpolation = 0.0005f;
-
-	if (m_bPlusLerp && !m_bMinusLerp)
+	if (_lerp == TOMINSCALE)
 	{
-		if (m_Scale <= m_MinScale)
-			m_bLerpFactor = true;
-
-		float newInterPolation = (m_MinScale - m_MaxScale) * fInterpolation;
-		m_Scale += newInterPolation;
+		newInterPolation = (m_MinScale - m_MaxScale) * fInterpolation;
 	}
-	else if (m_bMinusLerp && !m_bPlusLerp)
+	else if (_lerp == TOMAXSCALE)
 	{
-		if (m_Scale >= m_MaxScale)
-			m_bLerpFactor = false;
-
-		float newInterPolation = (m_MaxScale - m_MinScale) * fInterpolation;
-		m_Scale += newInterPolation;
+		newInterPolation = (m_MaxScale - m_MinScale) * fInterpolation;
 	}
+
+	m_Scale += newInterPolation;
+
+	if (m_Scale <= m_MinScale)
+	{
+		m_Scale = m_MinScale;
+		return false;
+	}
+
+	if (m_Scale >= m_MaxScale)
+	{
+		m_Scale = m_MaxScale;
+		return false;
+	}
+
+	return true;
 }
 

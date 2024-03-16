@@ -19,23 +19,8 @@ public:
 	virtual void Release()			PURE;
 
 public:
-	void Lerp();
-	void SetLerpFactor(bool _bool) {
-		m_bLerpFactor = _bool;
-	}
-	void SetLerp(bool _bool)
-	{
-		if (_bool)
-		{
-			m_bPlusLerp = true;
-			m_bMinusLerp = false;
-		}
-		else
-		{
-			m_bPlusLerp = false;
-			m_bMinusLerp = true;
-		}
-	}
+	bool Lerp(int);
+	void SetSpeed(float _speed) { m_fSpeed = _speed; }
 
 protected:
 	INFO		m_tInfo;
@@ -46,7 +31,6 @@ protected:
 	float m_InitX = 0.f;
 	float m_InitY = 0.f;
 
-	bool m_bLerpFactor = false;
 	bool m_bPlusLerp = false;
 	bool m_bMinusLerp = false;
 	float m_Scale = 0.f;

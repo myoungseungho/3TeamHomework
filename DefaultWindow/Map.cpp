@@ -18,11 +18,9 @@ void CMap::Initialize()
 	m_InitY = 50.f;
 
 	m_tInfo.vPos = { m_InitX, m_InitY, 0.f };
-	m_Scale = 1.f;
-	m_MaxScale = 5.f;
-	m_MinScale = 0.0f;
+	m_Scale = m_MinScale;
 
-	for (size_t i = 0; i < 8; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
 		for (size_t j = 0; j < 5; j++)
 		{
@@ -33,7 +31,7 @@ void CMap::Initialize()
 			}
 
 			m_vPoint[i][j].x = { m_tInfo.vPos.x };
-			m_vPoint[i][j].y = { m_tInfo.vPos.y + i * 75.f };
+			m_vPoint[i][j].y = { m_tInfo.vPos.y + i * 100.f };
 
 			if (j == 1 || j == 2)
 				m_vPoint[i][j].x = { m_tInfo.vPos.x + 700.f };
@@ -70,8 +68,6 @@ void CMap::Update()
 			D3DXVec3TransformCoord(&m_vPoint[i][j], &m_vPoint[i][j], &m_tInfo.matWorld);
 		}
 	}
-
-	Lerp();
 }
 
 void CMap::Render(HDC hDC)

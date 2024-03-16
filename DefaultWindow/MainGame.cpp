@@ -51,42 +51,30 @@ void CMainGame::Update()
 
 	if (m_IsObserver)
 	{
-		static int iCount = 0;
-		iCount++;
-		static bool bLerpMinus = false;
-		static bool bLerpPlus = false;
-
-		if (!bLerpMinus && !bLerpPlus && iCount > 65.f * 1.f)
+		if (!bMaxScale)
 		{
 			for (auto iter : m_listObj)
 			{
-				iter->SetLerp(true);
+				m_pPlayer->SetSpeed(4.f);
+				if (iter->Lerp(TOMAXSCALE) == false)
+					bMaxScale = true;
 			}
-			bLerpMinus = true;
-			iCount = 0;
+		}
+		else
+		{
+			for (auto iter : m_listObj)
+			{
+				if (iter->Lerp(TOMINSCALE) == false)
+					bMinScale = true;
+			}
 		}
 
-		if (bLerpMinus && !bLerpPlus && iCount > 65.f * 1.f)
+		if (bMinScale)
 		{
-			for (auto iter : m_listObj)
-			{
-				iter->SetLerp(false);
-			}
-			iCount = 0;
-			bLerpMinus = false;
-			bLerpPlus = true;
-		}
-
-		if (!bLerpMinus && bLerpPlus && iCount > 65.f * 1.f)
-		{
-			for (auto iter : m_listObj)
-			{
-				iter->SetLerpFactor(false);
-			}
-			iCount = 0;
-			bLerpMinus = false;
-			bLerpPlus = false;
+			m_pPlayer->SetSpeed(2.f);
 			m_IsObserver = false;
+			bMinScale = false;
+			bMaxScale = false;
 		}
 	}
 }
@@ -115,12 +103,6 @@ void CMainGame::ObserverPlayer(pair<bool, int> _pair)
 {
 	if (!m_IsObserver)
 		m_IsObserver = true;
-
-	for (auto iter : m_listObj)
-	{
-		iter->SetLerpFactor(true);
-		iter->SetLerp(true);
-	}
 
 	m_listObj.remove(m_pItem[_pair.second]);
 	Safe_Delete<CObj*>(m_pItem[_pair.second]);

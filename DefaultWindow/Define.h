@@ -5,6 +5,10 @@
 
 #define PURE		= 0
 
+#define TOMINSCALE  0
+#define TOMAXSCALE  1
+
+
 extern HWND g_hWnd;
 
 template<typename T>

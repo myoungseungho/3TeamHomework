@@ -17,9 +17,7 @@ void CPlayer::Initialize()
 {
 	m_InitX = 50.f;
 	m_InitY = 20.f;
-	m_Scale = 1.f;
-	m_MaxScale = 5.f;
-	m_MinScale = 0.0f;
+	m_Scale = m_MinScale;
 	m_tInfo.vPos = { m_InitX, m_InitY, 0.f };
 
 	m_vPoint[0] = { m_tInfo.vPos.x - 10.f, m_tInfo.vPos.y - 10.f, 0.f };
@@ -82,8 +80,6 @@ void CPlayer::Update()
 
 		m_pMainGame->ObserverPlayer(pairBoolInt);
 	}
-
-	Lerp();
 }
 
 void CPlayer::Render(HDC hDC)
@@ -187,7 +183,7 @@ void CPlayer::Key_Input()
 
 pair< bool, int> CPlayer::Collision_Item()
 {
-	if (m_tInfo.vPos.x >= 390.f && m_tInfo.vPos.y <= 410.f)
+	if (m_tInfo.vPos.x >= 390.f && m_tInfo.vPos.x <= 410.f)
 	{
 		if ((m_tInfo.vPos.y >= 15.f && m_tInfo.vPos.y <= 35.f))
 		{
@@ -199,7 +195,7 @@ pair< bool, int> CPlayer::Collision_Item()
 		}
 		else if ((m_tInfo.vPos.y >= 465.f && m_tInfo.vPos.y <= 485.f))
 		{
-			pair<bool, int>{ true, 2 };
+			return pair<bool, int>{ true, 2 };
 		}
 	}
 	return pair<bool, int>{ false, -1 };

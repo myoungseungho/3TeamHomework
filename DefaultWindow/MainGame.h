@@ -26,4 +26,6 @@ private:
 	CObj* m_pMap;
 
 	bool m_IsObserver = false;
+	bool bMaxScale = false;
+	bool bMinScale = false;
 };

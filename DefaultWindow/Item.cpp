@@ -15,9 +15,7 @@ CItem::~CItem()
 void CItem::Initialize()
 {
 	m_fAngleSpeed = 0.05f;
-	m_Scale = 1.f;
-	m_MaxScale = 5.f;
-	m_MinScale = 0.0f;
+	m_Scale = m_MinScale;
 
 	m_tInfo.vPos = { m_InitX, m_InitY, 0.f };
 
@@ -52,8 +50,6 @@ void CItem::Update()
 	}
 
 	m_fAngle += m_fAngleSpeed;
-
-	Lerp();
 }
 
 void CItem::Render(HDC hDC)
