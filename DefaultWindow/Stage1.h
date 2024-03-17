@@ -3,12 +3,12 @@
 #include "Define.h"
 #include "Player.h"
 #include "Monster.h"
-
-class CMainGame
+#include "Shield.h"
+class CStage1
 {
 public:
-	CMainGame();
-	~CMainGame();
+	CStage1();
+	~CStage1();
 
 public:
 	void		Initialize();
@@ -24,6 +24,7 @@ private:
 	CObj* m_pMonster;
 	CObj* m_pItem[3];
 	CObj* m_pMap;
+	CObj* m_pShield;
 
 	bool m_IsObserver = false;
 	bool bMaxScale = false;

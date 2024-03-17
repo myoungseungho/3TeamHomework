@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "MainGame.h"
+#include "Stage1.h"
 #include "Item.h"
 #include "Map.h"
-CMainGame::CMainGame()
-	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr)
+CStage1::CStage1()
+	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr), m_pShield(nullptr)
 {
 }
 
-CMainGame::~CMainGame()
+CStage1::~CStage1()
 {
 	Release();
 }
 
-void CMainGame::Initialize()
+void CStage1::Initialize()
 {
 	m_DC = GetDC(g_hWnd);
 
@@ -24,10 +24,18 @@ void CMainGame::Initialize()
 		m_listObj.push_back(m_pPlayer);
 	}
 
+	if (!m_pShield)
+	{
+		m_pShield = new CShield(m_pPlayer);
+		m_pShield->Initialize();
+
+		m_listObj.push_back(m_pShield);
+	}
+
 	for (size_t i = 0; i < 3; i++)
 	{
 		m_pItem[i] = new CItem;
-		m_pItem[i]->Set_Pos(400.f, 25.f + i * 225.f);
+		m_pItem[i]->Set_Pos(150.f, 25.f + i * 200.f);
 		m_pItem[i]->Initialize();
 
 		m_listObj.push_back(m_pItem[i]);
@@ -42,7 +50,7 @@ void CMainGame::Initialize()
 	}
 }
 
-void CMainGame::Update()
+void CStage1::Update()
 {
 	for (auto iter : m_listObj)
 	{
@@ -79,7 +87,7 @@ void CMainGame::Update()
 	}
 }
 
-void CMainGame::Render()
+void CStage1::Render()
 {
 	Rectangle(m_DC, 0, 0, WINCX, WINCY);
 
@@ -89,7 +97,7 @@ void CMainGame::Render()
 	}
 }
 
-void CMainGame::Release()
+void CStage1::Release()
 {
 	for (auto iter : m_listObj)
 	{
@@ -99,7 +107,7 @@ void CMainGame::Release()
 	ReleaseDC(g_hWnd, m_DC);
 }
 
-void CMainGame::ObserverPlayer(pair<bool, int> _pair)
+void CStage1::ObserverPlayer(pair<bool, int> _pair)
 {
 	if (!m_IsObserver)
 		m_IsObserver = true;

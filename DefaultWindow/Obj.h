@@ -34,6 +34,7 @@ protected:
 	bool m_bPlusLerp = false;
 	bool m_bMinusLerp = false;
 	float m_Scale = 0.f;
+	float m_ScaleY = 0.f;
 	float m_MaxScale = 0.f;
 	float m_MinScale = 0.f;
 };

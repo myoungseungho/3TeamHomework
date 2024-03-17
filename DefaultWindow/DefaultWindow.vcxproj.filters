@@ -31,6 +31,9 @@
     <Filter Include="01. Obj\03. Map">
       <UniqueIdentifier>{c851bbfb-77b9-48ed-9f4e-82ae97c1598c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Shield">
+      <UniqueIdentifier>{ce531326-3ee7-4313-a9fd-8dd9c62f2c02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,7 +51,7 @@
     <ClInclude Include="DefaultWindow.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MainGame.h">
+    <ClInclude Include="Stage1.h">
       <Filter>00. MainGame</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="Map.h">
       <Filter>01. Obj\03. Map</Filter>
     </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>01. Obj\04. Shield</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -77,7 +83,7 @@
     <ClCompile Include="DefaultWindow.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MainGame.cpp">
+    <ClCompile Include="Stage1.cpp">
       <Filter>00. MainGame</Filter>
     </ClCompile>
     <ClCompile Include="Obj.cpp">
@@ -94,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>01. Obj\03. Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>01. Obj\04. Shield</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

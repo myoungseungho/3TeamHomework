@@ -2,7 +2,7 @@
 #include "Obj.h"
 
 
-CObj::CObj() : m_fSpeed(0.f), m_fAngle(0.f), m_MaxScale(3.f), m_MinScale(1.f)
+CObj::CObj() : m_fSpeed(0.f), m_fAngle(0.f), m_MaxScale(2.f), m_MinScale(1.f), m_ScaleY(0.f)
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	D3DXMatrixIdentity(&m_tInfo.matWorld);
@@ -27,16 +27,19 @@ bool CObj::Lerp(int _lerp)
 	}
 
 	m_Scale += newInterPolation;
+	m_ScaleY += newInterPolation;
 
 	if (m_Scale <= m_MinScale)
 	{
 		m_Scale = m_MinScale;
+		m_ScaleY = m_MinScale;
 		return false;
 	}
 
 	if (m_Scale >= m_MaxScale)
 	{
 		m_Scale = m_MaxScale;
+		m_ScaleY = m_MaxScale;
 		return false;
 	}
 
