@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Monster.h"
 #include "Shield.h"
+#include "Trailer.h"
 class CStage1
 {
 public:
@@ -16,6 +17,7 @@ public:
 	void		Render();
 	void		Release();
 	void		ObserverPlayer(pair<bool,int>);
+	void		ExecuteObserver();
 
 private:
 	HDC			m_DC;
@@ -25,6 +27,7 @@ private:
 	CObj* m_pItem[3];
 	CObj* m_pMap;
 	CObj* m_pShield;
+	CObj* m_pTrailer;
 
 	bool m_IsObserver = false;
 	bool bMaxScale = false;

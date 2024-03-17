@@ -55,7 +55,7 @@ void CMap::Update()
 	D3DXMATRIX		matScale, matRotZ, matTrans;
 
 	D3DXMatrixScaling(&matScale, m_Scale, m_Scale, 1.f);
-	D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x, m_tInfo.vPos.y, m_tInfo.vPos.z);
+	D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x * m_Scale, m_tInfo.vPos.y * m_Scale, m_tInfo.vPos.z);
 
 	m_tInfo.matWorld = matScale * matTrans;
 

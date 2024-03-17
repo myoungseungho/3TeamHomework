@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="00. MainGame">
-      <UniqueIdentifier>{b9c448c8-06e6-4a36-8df4-5e9dcadacf5f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj">
       <UniqueIdentifier>{5ef40d1f-7706-448b-bcff-b647cfb55375}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,12 @@
     </Filter>
     <Filter Include="01. Obj\04. Shield">
       <UniqueIdentifier>{ce531326-3ee7-4313-a9fd-8dd9c62f2c02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Trailer">
+      <UniqueIdentifier>{12bf5350-39ec-49f4-ba75-8031d50528e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Stage1">
+      <UniqueIdentifier>{b9c448c8-06e6-4a36-8df4-5e9dcadacf5f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,7 +55,7 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Stage1.h">
-      <Filter>00. MainGame</Filter>
+      <Filter>00. Stage1</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
@@ -75,6 +78,9 @@
     <ClInclude Include="Shield.h">
       <Filter>01. Obj\04. Shield</Filter>
     </ClInclude>
+    <ClInclude Include="Trailer.h">
+      <Filter>01. Obj\05. Trailer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,7 +90,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Stage1.cpp">
-      <Filter>00. MainGame</Filter>
+      <Filter>00. Stage1</Filter>
     </ClCompile>
     <ClCompile Include="Obj.cpp">
       <Filter>01. Obj</Filter>
@@ -103,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Shield.cpp">
       <Filter>01. Obj\04. Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="Trailer.cpp">
+      <Filter>01. Obj\05. Trailer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

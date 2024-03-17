@@ -37,7 +37,7 @@ void CShield::Update()
 	D3DXMatrixScaling(&matScale, m_Scale, m_Scale, 1.f);
 	D3DXMatrixTranslation(&matTransCircle, 0, m_OrbitRadius, 0.f);
 	D3DXMatrixRotationZ(&matRotZ, m_fAngle);
-	D3DXMatrixTranslation(&matTrans, playerPos.x, playerPos.y, 0);
+	D3DXMatrixTranslation(&matTrans, playerPos.x * m_Scale, playerPos.y * m_Scale, 0);
 
 	m_tInfo.matWorld = matScale * matTransCircle * matRotZ * matTrans;
 

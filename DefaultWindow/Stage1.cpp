@@ -3,7 +3,7 @@
 #include "Item.h"
 #include "Map.h"
 CStage1::CStage1()
-	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr), m_pShield(nullptr)
+	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr), m_pShield(nullptr), m_pTrailer(nullptr)
 {
 }
 
@@ -22,6 +22,14 @@ void CStage1::Initialize()
 		m_pPlayer->Initialize();
 
 		m_listObj.push_back(m_pPlayer);
+	}
+
+	if (!m_pTrailer)
+	{
+		m_pTrailer = new CTrailer(m_pPlayer);
+		m_pTrailer->Initialize();
+
+		m_listObj.push_back(m_pTrailer);
 	}
 
 	if (!m_pShield)
@@ -57,34 +65,7 @@ void CStage1::Update()
 		iter->Update();
 	}
 
-	if (m_IsObserver)
-	{
-		if (!bMaxScale)
-		{
-			for (auto iter : m_listObj)
-			{
-				m_pPlayer->SetSpeed(4.f);
-				if (iter->Lerp(TOMAXSCALE) == false)
-					bMaxScale = true;
-			}
-		}
-		else
-		{
-			for (auto iter : m_listObj)
-			{
-				if (iter->Lerp(TOMINSCALE) == false)
-					bMinScale = true;
-			}
-		}
-
-		if (bMinScale)
-		{
-			m_pPlayer->SetSpeed(2.f);
-			m_IsObserver = false;
-			bMinScale = false;
-			bMaxScale = false;
-		}
-	}
+	ExecuteObserver();
 }
 
 void CStage1::Render()
@@ -114,4 +95,36 @@ void CStage1::ObserverPlayer(pair<bool, int> _pair)
 
 	m_listObj.remove(m_pItem[_pair.second]);
 	Safe_Delete<CObj*>(m_pItem[_pair.second]);
+}
+
+void CStage1::ExecuteObserver()
+{
+	if (m_IsObserver)
+	{
+		if (!bMaxScale)
+		{
+			for (auto iter : m_listObj)
+			{
+				m_pPlayer->SetSpeed(2.f);
+				if (iter->Lerp(TOMAXSCALE) == false)
+					bMaxScale = true;
+			}
+		}
+		else
+		{
+			for (auto iter : m_listObj)
+			{
+				if (iter->Lerp(TOMINSCALE) == false)
+					bMinScale = true;
+			}
+		}
+
+		if (bMinScale)
+		{
+			m_pPlayer->SetSpeed(1.f);
+			m_IsObserver = false;
+			bMinScale = false;
+			bMaxScale = false;
+		}
+	}
 }

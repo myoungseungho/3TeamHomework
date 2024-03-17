@@ -30,7 +30,7 @@ void CPlayer::Initialize()
 		m_vOriginPoint[i] = m_vPoint[i];
 
 	m_tInfo.vLook = { 1.f, 0.f, 0.f };
-	m_fSpeed = 2.f;
+	m_fSpeed = 1.f;
 }
 
 void CPlayer::Update()
@@ -66,11 +66,11 @@ void CPlayer::Render(HDC hDC)
 
 	if (m_ListSkidMark.size() != 0)
 	{
-		MoveToEx(hDC, (int)m_ListSkidMark.front().x, (int)m_ListSkidMark.front().y, nullptr);
+		MoveToEx(hDC, (int)m_ListSkidMark.front().x * m_Scale, (int)m_ListSkidMark.front().y * m_Scale, nullptr);
 
 		for (auto& iter : m_ListSkidMark)
 		{
-			LineTo(hDC, (int)iter.x, (int)iter.y);
+			LineTo(hDC, (int)iter.x * m_Scale, (int)iter.y * m_Scale);
 		}
 	}
 }
@@ -203,7 +203,7 @@ void CPlayer::TransformLocalToWorld()
 
 	D3DXMatrixScaling(&matScale, m_Scale, m_bIsFlip ? -m_ScaleY : m_ScaleY, 1.f);
 	D3DXMatrixRotationZ(&matRotZ, m_fAngle);
-	D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x, m_tInfo.vPos.y, m_tInfo.vPos.z);
+	D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x * m_Scale, m_tInfo.vPos.y * m_Scale, m_tInfo.vPos.z);
 
 	m_tInfo.matWorld = matScale * matRotZ * matTrans;
 
