@@ -24,7 +24,6 @@ protected:
 
 	float		m_fSpeed;
 	float		m_fAngle;
-
 };
 
 // 출력 연산의 최소 단위 = vertex

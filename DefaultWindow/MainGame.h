@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Define.h"
-#include "Player.h"
+#include "Player_Stage3.h"
 #include "Monster.h"
 
 class CMainGame

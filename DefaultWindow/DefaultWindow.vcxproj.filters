@@ -25,6 +25,9 @@
     <Filter Include="01. Obj\01. Monster">
       <UniqueIdentifier>{ea85627d-933a-4573-a1cc-85baa40e848f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. ScrollMgr">
+      <UniqueIdentifier>{964f1055-9687-435e-816d-f8f5a9778a86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -51,11 +54,14 @@
     <ClInclude Include="Obj.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Player_Stage3.h">
       <Filter>01. Obj\00. Player</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>01. Obj\01. Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollMgr.h">
+      <Filter>02. ScrollMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,11 +77,14 @@
     <ClCompile Include="Obj.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Player_Stage3.cpp">
       <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>01. Obj\01. Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollMgr.cpp">
+      <Filter>02. ScrollMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,8 +99,5 @@
     <Image Include="DefaultWindow.ico">
       <Filter>리소스 파일</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MainGame.h"
+#include "ScrollMgr.h"
 
 
 CMainGame::CMainGame()
@@ -32,7 +33,8 @@ void CMainGame::Update()
 
 void CMainGame::Render()
 {
-	Rectangle(m_DC, 0, 0, WINCX, WINCY);
+
+	Rectangle(m_DC, 0, 0, 1920,1080);
 	
 	m_pPlayer->Render(m_DC);
 }
