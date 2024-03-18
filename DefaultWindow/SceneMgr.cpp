@@ -2,6 +2,7 @@
 #include "SceneMgr.h"
 #include "Stage2.h"
 #include "Stage1.h"
+#include "Stage3.h"
 CSceneMgr*		CSceneMgr::m_pInstance = nullptr;
 
 CSceneMgr::CSceneMgr()
@@ -29,6 +30,9 @@ void CSceneMgr::Scene_Change(SCENEID eScene)
 			break;
 		case SC_STAGE2:
 			m_pScene = new CStage2;
+			break;
+		case SC_STAGE3:
+			m_pScene = new CStage3;
 			break;
 		}
 

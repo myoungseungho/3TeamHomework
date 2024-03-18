@@ -1,189 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="01. Obj">
-      <UniqueIdentifier>{5ef40d1f-7706-448b-bcff-b647cfb55375}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\00. Player">
-      <UniqueIdentifier>{3d3f9bdc-869a-437d-98e0-9966f4c13ecb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Monster">
-      <UniqueIdentifier>{ea85627d-933a-4573-a1cc-85baa40e848f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\02. Item">
-      <UniqueIdentifier>{82db5d37-3a5d-46cb-9eea-844fcb179e4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\03. Map">
-      <UniqueIdentifier>{c851bbfb-77b9-48ed-9f4e-82ae97c1598c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\04. Shield">
-      <UniqueIdentifier>{ce531326-3ee7-4313-a9fd-8dd9c62f2c02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\05. Trailer">
-      <UniqueIdentifier>{12bf5350-39ec-49f4-ba75-8031d50528e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00. Stage1">
-      <UniqueIdentifier>{b9c448c8-06e6-4a36-8df4-5e9dcadacf5f}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="DefaultWindow.cpp" />
+    <ClCompile Include="Item_Stage1.cpp" />
+    <ClCompile Include="KeyMgr.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Obj.cpp" />
+    <ClCompile Include="ObjMgr.cpp" />
+    <ClCompile Include="Player2.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneMgr.cpp" />
+    <ClCompile Include="Stage1.cpp" />
+    <ClCompile Include="Map_Stage1.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Obj_Stage1.cpp" />
+    <ClCompile Include="Player_Stage1.cpp" />
+    <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Stage2.cpp" />
+    <ClCompile Include="Star.cpp" />
+    <ClCompile Include="Player_Stage3.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Trailer.cpp" />
+    <ClCompile Include="Stage3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="DefaultWindow.h" />
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="Item_Stage1.h" />
+    <ClInclude Include="KeyMgr.h" />
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Obj.h" />
+    <ClInclude Include="ObjMgr.h" />
+    <ClInclude Include="Player2.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneMgr.h" />
+    <ClInclude Include="Stage1.h" />
+    <ClInclude Include="Map_Stage1.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Obj_Stage1.h" />
+    <ClInclude Include="Player_Stage1.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Shield.h" />
+    <ClInclude Include="Stage2.h" />
+    <ClInclude Include="Star.h" />
+    <ClInclude Include="Player_Stage3.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Trailer.h" />
+    <ClInclude Include="Stage3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DefaultWindow.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DefaultWindow.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultWindow.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage1.h">
-      <Filter>00. Stage1</Filter>
-    </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Obj_Stage1.h">
-      <Filter>01. Obj</Filter>
-    </ClInclude>
-    <ClInclude Include="Player_Stage1.h">
-    <ClInclude Include="Player_Stage3.h">
-      <Filter>01. Obj\00. Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>01. Obj\01. Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Item_Stage1.h">
-      <Filter>01. Obj\02. Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Map_Stage1.h">
-      <Filter>01. Obj\03. Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Shield.h">
-      <Filter>01. Obj\04. Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="Trailer.h">
-      <Filter>01. Obj\05. Trailer</Filter>
-    </ClInclude>
-    <ClInclude Include="Obj.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MainGame.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractFactory.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyMgr.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjMgr.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMgr.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Star.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage2.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Player2.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultWindow.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage1.cpp">
-      <Filter>00. Stage1</Filter>
-    </ClCompile>
-    <ClCompile Include="Obj_Stage1.cpp">
-      <Filter>01. Obj</Filter>
-    </ClCompile>
-    <ClCompile Include="Player_Stage1.cpp">
-    <ClCompile Include="Player_Stage3.cpp">
-      <Filter>01. Obj\00. Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>01. Obj\01. Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Item_Stage1.cpp">
-      <Filter>01. Obj\02. Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Map_Stage1.cpp">
-      <Filter>01. Obj\03. Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Shield.cpp">
-      <Filter>01. Obj\04. Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="Trailer.cpp">
-      <Filter>01. Obj\05. Trailer</Filter>
-    </ClCompile>
-    <ClCompile Include="Obj.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MainGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyMgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjMgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Star.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Player2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="DefaultWindow.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="DefaultWindow.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
   </ItemGroup>
 </Project>

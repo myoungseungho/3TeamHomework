@@ -2,6 +2,8 @@
 #include "Stage1.h"
 #include "Item_Stage1.h"
 #include "Map_Stage1.h"
+#include "SceneMgr.h"
+#include "KeyMgr.h"
 CStage1::CStage1()
 	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr), m_pShield(nullptr), m_pTrailer(nullptr)
 {
@@ -67,6 +69,10 @@ int CStage1::Update()
 
 	ExecuteObserver();
 
+	if (GetAsyncKeyState('2') & 0x8000)
+	{
+		CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE2);
+	}
 	return 0;
 }
 

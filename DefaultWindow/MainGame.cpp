@@ -18,7 +18,7 @@ CMainGame::~CMainGame()
 void CMainGame::Initialize()
 {
 	m_hDC = GetDC(g_hWnd);
-	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE2);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE1);
 }
 
 void CMainGame::Update()
@@ -40,7 +40,6 @@ void CMainGame::Render()
 
 void CMainGame::Release()
 {
-
 	CSceneMgr::Get_Instance()->Destroy_Instance();
 	CObjMgr::Get_Instance()->Destroy_Instance();
 	CKeyMgr::Get_Instance()->Destroy_Instance();

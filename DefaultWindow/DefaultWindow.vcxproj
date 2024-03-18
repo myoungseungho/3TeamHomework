@@ -170,6 +170,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Stage2.h" />
+    <ClInclude Include="Stage3.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="Player_Stage3.h" />
     <ClInclude Include="stdafx.h" />
@@ -193,9 +194,9 @@
     <ClCompile Include="Player_Stage1.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Stage2.cpp" />
+    <ClCompile Include="Stage3.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="Player_Stage3.cpp" />
-
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

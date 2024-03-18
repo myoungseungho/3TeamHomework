@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Player_Stage3.h"
-#include "ScrollMgr.h"
 
 CPlayer::CPlayer() : m_fVel(0.f), m_fAcc(0.f)
 {
@@ -32,7 +31,7 @@ void CPlayer::Initialize()
 	m_fSpeed = 2.f;
 }
 
-void CPlayer::Update()
+int CPlayer::Update()
 {
 
 	Key_Input();
@@ -88,13 +87,12 @@ void CPlayer::Update()
 	D3DXVECTOR3 vMoveDir = m_tInfo.vDir * m_fVel; // 현재 속도에 따른 이동 방향 계산
 	m_tInfo.vPos += vMoveDir;
 	///////////////////////////////////////////////////////////////////////////
+
+	return 0;
 }
 
 void CPlayer::Render(HDC hDC)
 {
-	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
 	MoveToEx(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y, nullptr);
 
 	for (int i = 0; i < 4; ++i)
@@ -174,4 +172,8 @@ void CPlayer::Key_Input()
 	}
 	else
 		m_bDrift = false;
+}
+
+void CPlayer::Late_Update()
+{
 }
