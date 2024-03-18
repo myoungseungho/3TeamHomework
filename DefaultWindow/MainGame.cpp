@@ -5,6 +5,7 @@
 #include "ObjMgr.h"
 
 
+
 CMainGame::CMainGame()
 {
 }
@@ -34,7 +35,6 @@ void CMainGame::Late_Update()
 void CMainGame::Render()
 {
 	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
-	
 	CSceneMgr::Get_Instance()->Render(m_hDC);
 }
 

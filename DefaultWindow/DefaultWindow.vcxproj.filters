@@ -64,6 +64,7 @@
       <Filter>01. Obj</Filter>
     </ClInclude>
     <ClInclude Include="Player_Stage1.h">
+    <ClInclude Include="Player_Stage3.h">
       <Filter>01. Obj\00. Player</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
@@ -126,6 +127,7 @@
       <Filter>01. Obj</Filter>
     </ClCompile>
     <ClCompile Include="Player_Stage1.cpp">
+    <ClCompile Include="Player_Stage3.cpp">
       <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
@@ -183,8 +185,5 @@
     <Image Include="DefaultWindow.ico">
       <Filter>리소스 파일</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
