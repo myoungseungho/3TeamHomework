@@ -1,10 +1,10 @@
 #pragma once
-#include "Obj.h"
+#include "Obj_Stage1.h"
 class CTrailer :
-    public CObj
+    public CObj_Stage1
 {
 public:
-	CTrailer(CObj*);
+	CTrailer(CObj_Stage1*);
 	virtual ~CTrailer();
 
 public:
@@ -18,6 +18,6 @@ private:
 	D3DXVECTOR3		m_vPoint[4];
 	D3DXVECTOR3		m_vOriginPoint[4];
 	bool m_bIsFlip = false;
-	CObj* m_pPlayerCopy;
+	CObj_Stage1* m_pPlayerCopy;
 };
 

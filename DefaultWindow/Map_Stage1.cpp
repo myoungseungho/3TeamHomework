@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "Map.h"
+#include "Map_Stage1.h"
 
-CMap::CMap()
+CMap_Stage1::CMap_Stage1()
 {
 	ZeroMemory(m_vPoint, sizeof(m_vPoint));
 	ZeroMemory(m_vOriginPoint, sizeof(m_vOriginPoint));
 }
 
-CMap::~CMap()
+CMap_Stage1::~CMap_Stage1()
 {
 	Release();
 }
 
-void CMap::Initialize()
+void CMap_Stage1::Initialize()
 {
 	m_InitX = 50.f;
 	m_InitY = 50.f;
@@ -50,7 +50,7 @@ void CMap::Initialize()
 	}
 }
 
-void CMap::Update()
+void CMap_Stage1::Update()
 {
 	D3DXMATRIX		matScale, matRotZ, matTrans;
 
@@ -70,7 +70,7 @@ void CMap::Update()
 	}
 }
 
-void CMap::Render(HDC hDC)
+void CMap_Stage1::Render(HDC hDC)
 {
 	for (int i = 0; i < 8; ++i)
 	{
@@ -86,7 +86,7 @@ void CMap::Render(HDC hDC)
 	}
 }
 
-void CMap::Release()
+void CMap_Stage1::Release()
 {
 }
 

@@ -2,11 +2,11 @@
 
 #include "Define.h"
 
-class CObj
+class CObj_Stage1
 {
 public:
-	CObj();
-	virtual ~CObj();
+	CObj_Stage1();
+	virtual ~CObj_Stage1();
 
 public:
 	INFO		Get_Info() { return m_tInfo; }

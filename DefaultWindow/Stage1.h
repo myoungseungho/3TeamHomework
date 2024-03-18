@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Define.h"
-#include "Player.h"
+#include "Player_Stage1.h"
 #include "Monster.h"
 #include "Shield.h"
 #include "Trailer.h"
@@ -21,13 +21,13 @@ public:
 
 private:
 	HDC			m_DC;
-	list<CObj*> m_listObj;
-	CObj* m_pPlayer;
-	CObj* m_pMonster;
-	CObj* m_pItem[3];
-	CObj* m_pMap;
-	CObj* m_pShield;
-	CObj* m_pTrailer;
+	list<CObj_Stage1*> m_listObj;
+	CObj_Stage1* m_pPlayer;
+	CObj_Stage1* m_pMonster;
+	CObj_Stage1* m_pItem[3];
+	CObj_Stage1* m_pMap;
+	CObj_Stage1* m_pShield;
+	CObj_Stage1* m_pTrailer;
 
 	bool m_IsObserver = false;
 	bool bMaxScale = false;

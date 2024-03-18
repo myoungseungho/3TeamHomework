@@ -60,19 +60,19 @@
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Obj.h">
+    <ClInclude Include="Obj_Stage1.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Player_Stage1.h">
       <Filter>01. Obj\00. Player</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>01. Obj\01. Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
+    <ClInclude Include="Item_Stage1.h">
       <Filter>01. Obj\02. Item</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="Map_Stage1.h">
       <Filter>01. Obj\03. Map</Filter>
     </ClInclude>
     <ClInclude Include="Shield.h">
@@ -92,19 +92,19 @@
     <ClCompile Include="Stage1.cpp">
       <Filter>00. Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="Obj.cpp">
+    <ClCompile Include="Obj_Stage1.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Player_Stage1.cpp">
       <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>01. Obj\01. Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
+    <ClCompile Include="Item_Stage1.cpp">
       <Filter>01. Obj\02. Item</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="Map_Stage1.cpp">
       <Filter>01. Obj\03. Map</Filter>
     </ClCompile>
     <ClCompile Include="Shield.cpp">

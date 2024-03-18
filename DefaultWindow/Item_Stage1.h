@@ -1,11 +1,11 @@
 #pragma once
-#include "Obj.h"
-class CMap :
-    public CObj
+#include "Obj_Stage1.h"
+class CItem_Stage1 :
+    public CObj_Stage1
 {
 public:
-	CMap();
-	virtual ~CMap();
+	CItem_Stage1();
+	virtual ~CItem_Stage1();
 
 public:
 	virtual void Initialize()		override;
@@ -14,8 +14,9 @@ public:
 	virtual void Release()			override;
 
 private:
-	D3DXVECTOR3		m_vPoint[100][100];
-	D3DXVECTOR3		m_vOriginPoint[100][100];
+	D3DXVECTOR3		m_vPoint[5];
+	D3DXVECTOR3		m_vOriginPoint[5];
+	float m_fAngleSpeed;
 
 };
 

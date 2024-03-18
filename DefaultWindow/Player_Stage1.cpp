@@ -1,19 +1,19 @@
 #include "stdafx.h"
-#include "Player.h"
+#include "Player_Stage1.h"
 
 
-CPlayer::CPlayer(CStage1* maingame) : m_bShift(false), m_pMainGame(maingame)
+CPlayer_Stage1::CPlayer_Stage1(CStage1* maingame) : m_bShift(false), m_pMainGame(maingame)
 {
 	ZeroMemory(m_vPoint, sizeof(m_vPoint));
 	ZeroMemory(m_vOriginPoint, sizeof(m_vOriginPoint));
 }
 
-CPlayer::~CPlayer()
+CPlayer_Stage1::~CPlayer_Stage1()
 {
 	Release();
 }
 
-void CPlayer::Initialize()
+void CPlayer_Stage1::Initialize()
 {
 	m_InitX = 50.f;
 	m_InitY = 20.f;
@@ -33,7 +33,7 @@ void CPlayer::Initialize()
 	m_fSpeed = 1.f;
 }
 
-void CPlayer::Update()
+void CPlayer_Stage1::Update()
 {
 	Key_Input();
 	TransformLocalToWorld();
@@ -43,7 +43,7 @@ void CPlayer::Update()
 	GameOver_Check();
 }
 
-void CPlayer::Render(HDC hDC)
+void CPlayer_Stage1::Render(HDC hDC)
 {
 	MoveToEx(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y, nullptr);
 
@@ -75,14 +75,14 @@ void CPlayer::Render(HDC hDC)
 	}
 }
 
-void CPlayer::Release()
+void CPlayer_Stage1::Release()
 {
 }
 
-void CPlayer::Key_Input()
+void CPlayer_Stage1::Key_Input()
 {
-	static int frameCount = 0; // 정적 변수로 프레임 카운트를 유지
-	frameCount++; // 매 호출마다 프레임 카운트 증가
+	static int frameCount = 0; 
+	frameCount++;
 
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
@@ -91,12 +91,11 @@ void CPlayer::Key_Input()
 		if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
 		{
 			m_fAngle += D3DXToRadian(3.f);
-			// 마지막 스키드 마크 추가 후 충분한 프레임이 경과했는지 확인
 			if (frameCount - m_lastSkidFrame >= m_skidInterval)
 			{
 				m_bShift = true;
 				m_ListSkidMark.push_back(D3DXVECTOR3(m_tInfo.vPos.x + 10.f, m_tInfo.vPos.y + 10.f, 0.f));
-				m_lastSkidFrame = frameCount; // 마지막 스키드 마크 추가 시점 업데이트
+				m_lastSkidFrame = frameCount;
 			}
 		}
 	}
@@ -110,12 +109,11 @@ void CPlayer::Key_Input()
 		{
 			m_fAngle += D3DXToRadian(-3.f);
 
-			// 마지막 스키드 마크 추가 후 충분한 프레임이 경과했는지 확인
 			if (frameCount - m_lastSkidFrame >= m_skidInterval)
 			{
 				m_bShift = true;
 				m_ListSkidMark.push_back(D3DXVECTOR3(m_tInfo.vPos.x + 10.f, m_tInfo.vPos.y + 10.f, 0.f));
-				m_lastSkidFrame = frameCount; // 마지막 스키드 마크 추가 시점 업데이트
+				m_lastSkidFrame = frameCount; 
 			}
 		}
 	}
@@ -133,7 +131,7 @@ void CPlayer::Key_Input()
 	}
 }
 
-pair< bool, int> CPlayer::Collision_Item()
+pair< bool, int> CPlayer_Stage1::Collision_Item()
 {
 	if (m_tInfo.vPos.x >= 140.f && m_tInfo.vPos.x <= 160.f)
 	{
@@ -153,7 +151,7 @@ pair< bool, int> CPlayer::Collision_Item()
 	return pair<bool, int>{ false, -1 };
 }
 
-void CPlayer::Collision_Check()
+void CPlayer_Stage1::Collision_Check()
 {
 	pair<bool, int> pairBoolInt = Collision_Item();
 	if (pairBoolInt.first == true)
@@ -165,7 +163,7 @@ void CPlayer::Collision_Check()
 	}
 }
 
-void CPlayer::flipVertical()
+void CPlayer_Stage1::flipVertical()
 {
 	if ((m_tInfo.vPos.y >= 80.f) && (m_tInfo.vPos.y <= 180.f)
 		|| (m_tInfo.vPos.y >= 280.f) && (m_tInfo.vPos.y <= 380.f)
@@ -175,7 +173,7 @@ void CPlayer::flipVertical()
 		m_bIsFlip = false;
 }
 
-void CPlayer::ExecuteDrift()
+void CPlayer_Stage1::ExecuteDrift()
 {
 	if (m_bShift)
 	{
@@ -197,7 +195,7 @@ void CPlayer::ExecuteDrift()
 	}
 }
 
-void CPlayer::TransformLocalToWorld()
+void CPlayer_Stage1::TransformLocalToWorld()
 {
 	D3DXMATRIX		matScale, matRotZ, matTrans;
 
@@ -217,7 +215,7 @@ void CPlayer::TransformLocalToWorld()
 	}
 }
 
-bool CPlayer::GameOver_Check()
+bool CPlayer_Stage1::GameOver_Check()
 {
 	if (m_tInfo.vPos.x < -50.f)
 		return true;

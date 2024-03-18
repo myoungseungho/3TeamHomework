@@ -1,12 +1,12 @@
 ﻿#pragma once
-#include "Obj.h"
+#include "Obj_Stage1.h"
 #include "Stage1.h"
 class CStage1;
-class CPlayer : public CObj
+class CPlayer_Stage1 : public CObj_Stage1
 {
 public:
-	CPlayer(CStage1* stage1);
-	virtual ~CPlayer();
+	CPlayer_Stage1(CStage1* stage1);
+	virtual ~CPlayer_Stage1();
 
 public:
 	virtual void Initialize() override;

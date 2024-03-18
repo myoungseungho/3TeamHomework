@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "Item.h"
+#include "Item_Stage1.h"
 
-CItem::CItem() :m_fAngleSpeed(0.f)
+CItem_Stage1::CItem_Stage1() :m_fAngleSpeed(0.f)
 {
 	ZeroMemory(m_vPoint, sizeof(m_vPoint));
 	ZeroMemory(m_vOriginPoint, sizeof(m_vOriginPoint));
 }
 
-CItem::~CItem()
+CItem_Stage1::~CItem_Stage1()
 {
 	Release();
 }
 
-void CItem::Initialize()
+void CItem_Stage1::Initialize()
 {
 	m_fAngleSpeed = 0.05f;
 	m_Scale = m_MinScale;
@@ -30,7 +30,7 @@ void CItem::Initialize()
 
 }
 
-void CItem::Update()
+void CItem_Stage1::Update()
 {
 	D3DXMATRIX		matScale, matRotZ, matTrans;
 
@@ -52,7 +52,7 @@ void CItem::Update()
 	m_fAngle += m_fAngleSpeed;
 }
 
-void CItem::Render(HDC hDC)
+void CItem_Stage1::Render(HDC hDC)
 {
 	MoveToEx(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y, nullptr);
 
@@ -64,6 +64,6 @@ void CItem::Render(HDC hDC)
 	LineTo(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y);
 }
 
-void CItem::Release()
+void CItem_Stage1::Release()
 {
 }

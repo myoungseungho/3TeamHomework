@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Shield.h"
 
-CShield::CShield(CObj* m_pPlayer) : m_pPlayerCopy(m_pPlayer)
+CShield::CShield(CObj_Stage1* m_pPlayer) : m_pPlayerCopy(m_pPlayer)
 {
 }
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Trailer.h"
 
-CTrailer::CTrailer(CObj* _pPlayer) : m_pPlayerCopy(_pPlayer)
+CTrailer::CTrailer(CObj_Stage1* _pPlayer) : m_pPlayerCopy(_pPlayer)
 {
 	ZeroMemory(m_vPoint, sizeof(m_vPoint));
 	ZeroMemory(m_vOriginPoint, sizeof(m_vOriginPoint));

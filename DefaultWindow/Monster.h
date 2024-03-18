@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Obj.h"
+#include "Obj_Stage1.h"
 
-class CMonster :	public CObj
+class CMonster :	public CObj_Stage1
 {
 public:
 	CMonster();
@@ -15,10 +15,10 @@ public:
 	virtual void Release()			override;
 
 public:
-	void		Set_Player(CObj* pPlayer) {	m_pPlayer = pPlayer; }
+	void		Set_Player(CObj_Stage1* pPlayer) {	m_pPlayer = pPlayer; }
 
 private:
-	CObj*		m_pPlayer;
+	CObj_Stage1*		m_pPlayer;
 
 };
 

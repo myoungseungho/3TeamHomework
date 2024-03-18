@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Stage1.h"
-#include "Item.h"
-#include "Map.h"
+#include "Item_Stage1.h"
+#include "Map_Stage1.h"
 CStage1::CStage1()
 	: m_pPlayer(nullptr), m_pMonster(nullptr), m_pMap(nullptr), m_pShield(nullptr), m_pTrailer(nullptr)
 {
@@ -18,7 +18,7 @@ void CStage1::Initialize()
 
 	if (!m_pPlayer)
 	{
-		m_pPlayer = new CPlayer(this);
+		m_pPlayer = new CPlayer_Stage1(this);
 		m_pPlayer->Initialize();
 
 		m_listObj.push_back(m_pPlayer);
@@ -42,7 +42,7 @@ void CStage1::Initialize()
 
 	for (size_t i = 0; i < 3; i++)
 	{
-		m_pItem[i] = new CItem;
+		m_pItem[i] = new CItem_Stage1;
 		m_pItem[i]->Set_Pos(150.f, 25.f + i * 200.f);
 		m_pItem[i]->Initialize();
 
@@ -51,7 +51,7 @@ void CStage1::Initialize()
 
 	if (!m_pMap)
 	{
-		m_pMap = new CMap;
+		m_pMap = new CMap_Stage1;
 		m_pMap->Initialize();
 
 		m_listObj.push_back(m_pMap);
@@ -82,7 +82,7 @@ void CStage1::Release()
 {
 	for (auto iter : m_listObj)
 	{
-		Safe_Delete<CObj*>(iter);
+		Safe_Delete<CObj_Stage1*>(iter);
 	}
 
 	ReleaseDC(g_hWnd, m_DC);
@@ -94,7 +94,7 @@ void CStage1::ObserverPlayer(pair<bool, int> _pair)
 		m_IsObserver = true;
 
 	m_listObj.remove(m_pItem[_pair.second]);
-	Safe_Delete<CObj*>(m_pItem[_pair.second]);
+	Safe_Delete<CObj_Stage1*>(m_pItem[_pair.second]);
 }
 
 void CStage1::ExecuteObserver()

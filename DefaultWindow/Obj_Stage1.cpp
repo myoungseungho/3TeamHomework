@@ -1,18 +1,18 @@
 #include "stdafx.h"
-#include "Obj.h"
+#include "Obj_Stage1.h"
 
 
-CObj::CObj() : m_fSpeed(0.f), m_fAngle(0.f), m_MaxScale(2.f), m_MinScale(1.f), m_ScaleY(0.f)
+CObj_Stage1::CObj_Stage1() : m_fSpeed(0.f), m_fAngle(0.f), m_MaxScale(2.f), m_MinScale(1.f), m_ScaleY(0.f)
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	D3DXMatrixIdentity(&m_tInfo.matWorld);
 }
 
-CObj::~CObj()
+CObj_Stage1::~CObj_Stage1()
 {
 }
 
-bool CObj::Lerp(int _lerp)
+bool CObj_Stage1::Lerp(int _lerp)
 {
 	float fInterpolation = 0.01f;
 	float newInterPolation = 0.f;
