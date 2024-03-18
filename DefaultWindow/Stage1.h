@@ -5,7 +5,9 @@
 #include "Monster.h"
 #include "Shield.h"
 #include "Trailer.h"
+#include "Scene.h"
 class CStage1
+	:public CScene
 {
 public:
 	CStage1();
@@ -13,11 +15,13 @@ public:
 
 public:
 	void		Initialize();
-	void		Update();
-	void		Render();
+	void Render(HDC hDC) override;
+	int Update() override;
+	void Late_Update() override;
 	void		Release();
-	void		ObserverPlayer(pair<bool,int>);
+	void		ObserverPlayer(pair<bool, int>);
 	void		ExecuteObserver();
+
 
 private:
 	HDC			m_DC;

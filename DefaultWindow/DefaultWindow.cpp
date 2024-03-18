@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "DefaultWindow.h"
-#include "Stage1.h"
+#include "MainGame.h"
 
 #define MAX_LOADSTRING 100
 
@@ -73,7 +73,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
 
 	DWORD	dwTime = GetTickCount();	// 500
 
-	CStage1		MainGame;
+	CMainGame		MainGame;
 	MainGame.Initialize();
 
 	while (true)
@@ -98,7 +98,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
 			{
 				MainGame.Update();
 				MainGame.Late_Update();
-
 				MainGame.Render();
 
 				dwTime = GetTickCount();

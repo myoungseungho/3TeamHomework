@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "SceneMgr.h"
 #include "Stage2.h"
-
+#include "Stage1.h"
 CSceneMgr*		CSceneMgr::m_pInstance = nullptr;
 
 CSceneMgr::CSceneMgr()
-	: m_eCurScene(SC_LOGO), m_ePreScene(SC_END), m_pScene(nullptr)
+	: m_eCurScene(SC_STAGE1), m_ePreScene(SC_END), m_pScene(nullptr)
 {
 }
 
@@ -24,20 +24,8 @@ void CSceneMgr::Scene_Change(SCENEID eScene)
 
 		switch (m_eCurScene)
 		{
-		case SC_LOGO:
-			//m_pScene = new CLogo;
-			break;
-
-		case SC_MENU:
-			//m_pScene = new CMyMenu;
-			break;
-
-		case SC_EDIT:
-			//m_pScene = new CMyEdit;
-			break;
-
-		case SC_STAGE:
-			//m_pScene = new CStage;
+		case SC_STAGE1:
+			m_pScene = new CStage1;
 			break;
 		case SC_STAGE2:
 			m_pScene = new CStage2;

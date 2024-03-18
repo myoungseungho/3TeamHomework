@@ -6,7 +6,6 @@
 
 
 CMainGame::CMainGame()
-	
 {
 }
 
@@ -19,15 +18,12 @@ void CMainGame::Initialize()
 {
 	m_hDC = GetDC(g_hWnd);
 	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE2);
-
-
 }
 
 void CMainGame::Update()
 {
 	CKeyMgr::Get_Instance()->Update();
 	CSceneMgr::Get_Instance()->Update();
-
 }
 
 void CMainGame::Late_Update()
@@ -39,9 +35,7 @@ void CMainGame::Render()
 {
 	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
 	
-	
 	CSceneMgr::Get_Instance()->Render(m_hDC);
-
 }
 
 void CMainGame::Release()

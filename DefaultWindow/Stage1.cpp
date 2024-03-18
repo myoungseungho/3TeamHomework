@@ -58,7 +58,7 @@ void CStage1::Initialize()
 	}
 }
 
-void CStage1::Update()
+int CStage1::Update()
 {
 	for (auto iter : m_listObj)
 	{
@@ -66,15 +66,21 @@ void CStage1::Update()
 	}
 
 	ExecuteObserver();
+
+	return 0;
 }
 
-void CStage1::Render()
+void CStage1::Late_Update()
 {
-	Rectangle(m_DC, 0, 0, WINCX, WINCY);
+}
+
+void CStage1::Render(HDC hdc)
+{
+	Rectangle(hdc, 0, 0, WINCX, WINCY);
 
 	for (auto iter : m_listObj)
 	{
-		iter->Render(m_DC);
+		iter->Render(hdc);
 	}
 }
 

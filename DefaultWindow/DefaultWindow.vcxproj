@@ -151,9 +151,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Item_Stage1.h" />
+    <ClInclude Include="KeyMgr.h" />
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Obj.h" />
+    <ClInclude Include="ObjMgr.h" />
+    <ClInclude Include="Player2.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="Map_Stage1.h" />
     <ClInclude Include="Monster.h" />
@@ -161,6 +169,8 @@
     <ClInclude Include="Player_Stage1.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shield.h" />
+    <ClInclude Include="Stage2.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Trailer.h" />
@@ -168,12 +178,21 @@
   <ItemGroup>
     <ClCompile Include="DefaultWindow.cpp" />
     <ClCompile Include="Item_Stage1.cpp" />
+    <ClCompile Include="KeyMgr.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Obj.cpp" />
+    <ClCompile Include="ObjMgr.cpp" />
+    <ClCompile Include="Player2.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Map_Stage1.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj_Stage1.cpp" />
     <ClCompile Include="Player_Stage1.cpp" />
     <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Stage2.cpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
