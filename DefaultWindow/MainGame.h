@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Define.h"
-#include "Player.h"
-#include "Monster.h"
+#include "Player2.h"
+#include "Star.h"
 
 class CMainGame
 {
@@ -13,13 +13,13 @@ public:
 public:
 	void		Initialize();
 	void		Update();
+	void		Late_Update();
 	void		Render();
 	void		Release();
 
 private:
-	HDC			m_DC;
-	CObj*		m_pPlayer;
-	CObj*		m_pMonster;
+	HDC			m_hDC;
+
 
 };
 

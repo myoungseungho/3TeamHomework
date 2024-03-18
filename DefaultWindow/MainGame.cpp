@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "MainGame.h"
+#include "KeyMgr.h"
+#include "SceneMgr.h"
+#include "ObjMgr.h"
 
 
 CMainGame::CMainGame()
-	: m_pPlayer(nullptr), m_pMonster(nullptr)
+	
 {
 }
 
@@ -14,32 +17,39 @@ CMainGame::~CMainGame()
 
 void CMainGame::Initialize()
 {
-	m_DC = GetDC(g_hWnd);
-
-	if (!m_pPlayer)
-	{
-		m_pPlayer = new CPlayer;
-		m_pPlayer->Initialize();
-	}
+	m_hDC = GetDC(g_hWnd);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE2);
 
 
 }
 
 void CMainGame::Update()
 {
-	m_pPlayer->Update();
+	CKeyMgr::Get_Instance()->Update();
+	CSceneMgr::Get_Instance()->Update();
+
+}
+
+void CMainGame::Late_Update()
+{
+	CSceneMgr::Get_Instance()->Late_Update();
 }
 
 void CMainGame::Render()
 {
-	Rectangle(m_DC, 0, 0, WINCX, WINCY);
+	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
 	
-	m_pPlayer->Render(m_DC);
+	
+	CSceneMgr::Get_Instance()->Render(m_hDC);
+
 }
 
 void CMainGame::Release()
 {
-	Safe_Delete<CObj*>(m_pPlayer);
-	
-	ReleaseDC(g_hWnd, m_DC);
+
+	CSceneMgr::Get_Instance()->Destroy_Instance();
+	CObjMgr::Get_Instance()->Destroy_Instance();
+	CKeyMgr::Get_Instance()->Destroy_Instance();
+
+	ReleaseDC(g_hWnd, m_hDC);
 }

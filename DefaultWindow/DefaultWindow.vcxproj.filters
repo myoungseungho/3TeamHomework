@@ -25,6 +25,33 @@
     <Filter Include="01. Obj\01. Monster">
       <UniqueIdentifier>{ea85627d-933a-4573-a1cc-85baa40e848f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design">
+      <UniqueIdentifier>{beed1992-f341-4021-a90a-865fa77e3525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\00. AbstractFactory">
+      <UniqueIdentifier>{3b1a26e3-6b7d-413c-9806-d8d73ba57098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\01. ObjMgr">
+      <UniqueIdentifier>{289a9de6-4274-41b7-85ab-095ee7f48cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\02. CollisionMgr">
+      <UniqueIdentifier>{0996bd25-a1bb-4280-bab3-809b42ff619f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\03. KeyMgr">
+      <UniqueIdentifier>{58273e04-a87d-456f-b556-df197cedeae9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\04. SceneMgr">
+      <UniqueIdentifier>{d05b1f9b-70dc-45df-a488-4ae3d85012a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene">
+      <UniqueIdentifier>{f9e851d5-9445-4d2d-b68e-04c6e08715bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\00. Stage02">
+      <UniqueIdentifier>{e21c046d-6b49-4107-be1c-6282caea0bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Item">
+      <UniqueIdentifier>{22322e60-258b-45fa-a3f4-d1cce57f808f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -51,11 +78,29 @@
     <ClInclude Include="Obj.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Player2.h">
       <Filter>01. Obj\00. Player</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>01. Obj\01. Monster</Filter>
+    <ClInclude Include="Scene.h">
+      <Filter>03. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>03. Scene\00. Stage02</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>02. Design\03. KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>02. Design\04. SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMgr.h">
+      <Filter>02. Design\01. ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactory.h">
+      <Filter>02. Design\00. AbstractFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>01. Obj\02. Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,11 +116,26 @@
     <ClCompile Include="Obj.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Player2.cpp">
       <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>01. Obj\01. Monster</Filter>
+    <ClCompile Include="Scene.cpp">
+      <Filter>03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>03. Scene\00. Stage02</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>02. Design\03. KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>02. Design\04. SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMgr.cpp">
+      <Filter>02. Design\01. ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>01. Obj\02. Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,8 +150,5 @@
     <Image Include="DefaultWindow.ico">
       <Filter>리소스 파일</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
